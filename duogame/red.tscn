@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://sb6uf606gkse"]
+
+[ext_resource type="Script" path="res://red.gd" id="1_gec5o"]
+[ext_resource type="Texture2D" uid="uid://cr7nycgenuwnq" path="res://Red Sprite/New/Top Down/Front Movement.png" id="2_felb2"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p6uwf"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_1nj8g"]
+frames = 5
+frame_0/texture = ExtResource("2_felb2")
+frame_1/duration = 1.0
+frame_2/duration = 1.0
+frame_3/duration = 1.0
+frame_4/duration = 1.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_gec5o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_p6uwf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AnimatedTexture_1nj8g")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
