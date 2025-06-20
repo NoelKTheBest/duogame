@@ -4,17 +4,24 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
+var light_mode = "00c9c6"
+var dark_mode = "0b0030"
+
 @onready var animation_tree : AnimationTree = $AnimationTree
+@onready var animation_player : AnimationPlayer = $AnimationPlayer
 @onready var sprite : Sprite2D = $Sprite2D
+@onready var collider : CollisionShape2D = $CollisionShape2D
 
 
 func _ready() -> void:
 	animation_tree.active = true
+	modulate = dark_mode
 
 
 func _process(delta: float) -> void:
-	#update_animations()
-	pass
+	if Input.is_action_just_pressed("attack"):
+		animation_tree.active = false
+		animation_player.play("attack")
 
 
 func _physics_process(delta: float) -> void:
@@ -34,16 +41,18 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
-	if velocity.x < 0: sprite.flip_h = true 
-	elif velocity.x > 0: sprite.flip_h = false
+	if animation_tree.active == true:
+		if velocity.x < 0: sprite.flip_h = true 
+		elif velocity.x > 0: sprite.flip_h = false
+	elif animation_tree.active == false and is_on_floor():
+		if velocity.x < 0: sprite.flip_h = true 
+		elif velocity.x > 0: sprite.flip_h = false
+	
+	collider.position.x = 18 if sprite.flip_h else 0
 
 	move_and_slide()
 
 
-func update_animations():
-	if velocity.x == 0:
-		animation_tree["parameters/conditions/idle"] = true
-		animation_tree["parameters/conditions/moving"] = false
-	elif velocity.x != 0:
-		animation_tree["parameters/conditions/idle"] = false
-		animation_tree["parameters/conditions/moving"] = true
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "attack":
+		animation_tree.active = true
