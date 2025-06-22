@@ -1,14 +1,26 @@
-[gd_scene load_steps=7 format=3 uid="uid://ckce2mnei45uq"]
+[gd_scene load_steps=11 format=3 uid="uid://ckce2mnei45uq"]
 
+[ext_resource type="Script" path="res://node_2d.gd" id="1_0bfx7"]
 [ext_resource type="Texture2D" uid="uid://bgpfuxay5krw8" path="res://icon.svg" id="1_gkcnv"]
 [ext_resource type="Texture2D" uid="uid://cbi0osq8ivtds" path="res://Base Color.png" id="1_mia12"]
 [ext_resource type="PackedScene" uid="uid://dj8ql3v7clrje" path="res://warrior.tscn" id="1_vpw6c"]
-[ext_resource type="PackedScene" uid="uid://deageurlpgdyg" path="res://light_block.tscn" id="4_vyg5o"]
-[ext_resource type="PackedScene" uid="uid://c3illhyrakph8" path="res://dark_block.tscn" id="5_ts45c"]
+[ext_resource type="PackedScene" uid="uid://bovrmtdnpfyqq" path="res://platform.tscn" id="3_e6kvh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xj4f5"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2msbg"]
+size = Vector2(18.4253, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_84028"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7c0ee"]
+size = Vector2(18.3626, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_etpnc"]
+size = Vector2(24.6118, 32.1531)
+
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_0bfx7")
 
 [node name="BaseColor" type="Sprite2D" parent="."]
 position = Vector2(676, 516)
@@ -16,23 +28,398 @@ scale = Vector2(18.9625, 5.75)
 texture = ExtResource("1_mia12")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_vpw6c")]
-position = Vector2(4499, 637)
-
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-modulate = Color(0.0486666, 0.73, 0, 1)
-position = Vector2(4422, 861)
-scale = Vector2(53.5483, 3.13792)
+modulate = Color(0, 0.788235, 0.776471, 1)
+position = Vector2(4383, 682)
 metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+limit_left = -3750
+limit_top = -403
+limit_right = 5100
+limit_bottom = 1436
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="CharacterBody2D/Camera2D"]
+offset_left = -152.0
+offset_top = -246.0
+offset_right = 218.0
+offset_bottom = -89.0
+theme_override_font_sizes/font_size = 70
+
+[node name="Timer" type="Timer" parent="CharacterBody2D"]
+wait_time = 5.0
+
+[node name="StaticBody2D" parent="." instance=ExtResource("3_e6kvh")]
+
+[node name="StaticBody2D2" parent="." instance=ExtResource("3_e6kvh")]
+position = Vector2(3200, 1109)
+
+[node name="StaticBody2D3" parent="." instance=ExtResource("3_e6kvh")]
+position = Vector2(2041, 909)
+
+[node name="StaticBody2D4" parent="." instance=ExtResource("3_e6kvh")]
+position = Vector2(796, 1153)
+
+[node name="StaticBody2D5" parent="." instance=ExtResource("3_e6kvh")]
+position = Vector2(-1051, 935)
+scale = Vector2(16.1483, 3.13792)
+
+[node name="StaticBody2D6" parent="." instance=ExtResource("3_e6kvh")]
+position = Vector2(-718, 1006)
+scale = Vector2(16.7083, 2.41792)
+
+[node name="StaticBody2D7" parent="." instance=ExtResource("3_e6kvh")]
+position = Vector2(3.99998, 1079)
+scale = Vector2(26.7541, 1.84968)
+
+[node name="StaticBody2D8" parent="." instance=ExtResource("3_e6kvh")]
+position = Vector2(3073, 715)
+scale = Vector2(13.8683, 3.13792)
+
+[node name="StaticBody2D9" parent="." instance=ExtResource("3_e6kvh")]
+position = Vector2(2768, 1005)
+scale = Vector2(20.8556, 1.17792)
+
+[node name="StaticBody2D10" parent="." instance=ExtResource("3_e6kvh")]
+position = Vector2(4116, 568)
+
+[node name="StaticBody2D11" parent="." instance=ExtResource("3_e6kvh")]
+position = Vector2(4719, 697)
+scale = Vector2(6.61803, 1.32855)
+
+[node name="StaticBody2D12" parent="." instance=ExtResource("3_e6kvh")]
+position = Vector2(4582, 796)
+scale = Vector2(8.3883, 3.13792)
+
+[node name="StaticBody2D13" parent="." instance=ExtResource("3_e6kvh")]
+position = Vector2(-3167, 390)
+
+[node name="StaticBody2D14" parent="." instance=ExtResource("3_e6kvh")]
+position = Vector2(-1755, 852)
+
+[node name="StaticBody2D16" parent="." instance=ExtResource("3_e6kvh")]
+position = Vector2(-2089, 696)
+scale = Vector2(11.2761, 3.13792)
+
+[node name="StaticBody2D17" parent="." instance=ExtResource("3_e6kvh")]
+position = Vector2(-2406, 602)
+scale = Vector2(11.2761, 1.45792)
+
+[node name="StaticBody2D19" parent="." instance=ExtResource("3_e6kvh")]
+position = Vector2(-2100, 481)
+scale = Vector2(11.2761, 1.45792)
+
+[node name="StaticBody2D20" parent="." instance=ExtResource("3_e6kvh")]
+position = Vector2(-2406, 301)
+scale = Vector2(11.2761, 1.45792)
+
+[node name="StaticBody2D18" parent="." instance=ExtResource("3_e6kvh")]
+position = Vector2(-2584, 512)
+scale = Vector2(11.2761, 1.45792)
+
+[node name="StaticBody2D15" parent="." instance=ExtResource("3_e6kvh")]
+position = Vector2(-596, 1150)
+
+[node name="Light Block" type="StaticBody2D" parent="."]
+modulate = Color(0, 0.788235, 0.776471, 1)
+position = Vector2(4871, 715)
+scale = Vector2(8.07862, 11.2204)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Light Block"]
 shape = SubResource("RectangleShape2D_xj4f5")
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Light Block"]
 scale = Vector2(0.15625, 0.15625)
 texture = ExtResource("1_gkcnv")
 
-[node name="Light Block" parent="." instance=ExtResource("4_vyg5o")]
+[node name="Area2D" type="Area2D" parent="Light Block"]
 
-[node name="Dark Block" parent="." instance=ExtResource("5_ts45c")]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Light Block/Area2D"]
+position = Vector2(-0.813843, 0)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_2msbg")
+
+[node name="Light Block2" type="StaticBody2D" parent="."]
+modulate = Color(0, 0.788235, 0.776471, 1)
+position = Vector2(3643, 966)
+scale = Vector2(8.07862, 11.2204)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Light Block2"]
+shape = SubResource("RectangleShape2D_xj4f5")
+
+[node name="Sprite2D" type="Sprite2D" parent="Light Block2"]
+scale = Vector2(0.15625, 0.15625)
+texture = ExtResource("1_gkcnv")
+
+[node name="Area2D" type="Area2D" parent="Light Block2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Light Block2/Area2D"]
+position = Vector2(-0.813843, 0)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_2msbg")
+
+[node name="Light Block3" type="StaticBody2D" parent="."]
+modulate = Color(0, 0.788235, 0.776471, 1)
+position = Vector2(-2370, 853)
+scale = Vector2(8.07862, 11.2204)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Light Block3"]
+shape = SubResource("RectangleShape2D_xj4f5")
+
+[node name="Sprite2D" type="Sprite2D" parent="Light Block3"]
+scale = Vector2(0.15625, 0.15625)
+texture = ExtResource("1_gkcnv")
+
+[node name="Area2D" type="Area2D" parent="Light Block3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Light Block3/Area2D"]
+position = Vector2(-0.813843, 0)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_2msbg")
+
+[node name="Light Block5" type="StaticBody2D" parent="."]
+modulate = Color(0, 0.788235, 0.776471, 1)
+position = Vector2(-2704, 460)
+scale = Vector2(7.39923, 3.0413)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Light Block5"]
+shape = SubResource("RectangleShape2D_xj4f5")
+
+[node name="Sprite2D" type="Sprite2D" parent="Light Block5"]
+scale = Vector2(0.15625, 0.15625)
+texture = ExtResource("1_gkcnv")
+
+[node name="Area2D" type="Area2D" parent="Light Block5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Light Block5/Area2D"]
+position = Vector2(-0.813843, 0)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_2msbg")
+
+[node name="Light Block6" type="StaticBody2D" parent="."]
+modulate = Color(0, 0.788235, 0.776471, 1)
+position = Vector2(-1692, 386)
+scale = Vector2(7.39923, 3.0413)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Light Block6"]
+shape = SubResource("RectangleShape2D_xj4f5")
+
+[node name="Sprite2D" type="Sprite2D" parent="Light Block6"]
+scale = Vector2(0.15625, 0.15625)
+texture = ExtResource("1_gkcnv")
+
+[node name="Area2D" type="Area2D" parent="Light Block6"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Light Block6/Area2D"]
+position = Vector2(-0.813843, 0)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_2msbg")
+
+[node name="Light Block7" type="StaticBody2D" parent="."]
+modulate = Color(0, 0.788235, 0.776471, 1)
+position = Vector2(-1921, 281)
+scale = Vector2(7.39923, 3.0413)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Light Block7"]
+shape = SubResource("RectangleShape2D_xj4f5")
+
+[node name="Sprite2D" type="Sprite2D" parent="Light Block7"]
+scale = Vector2(0.15625, 0.15625)
+texture = ExtResource("1_gkcnv")
+
+[node name="Area2D" type="Area2D" parent="Light Block7"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Light Block7/Area2D"]
+position = Vector2(-0.813843, 0)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_2msbg")
+
+[node name="Light Block4" type="StaticBody2D" parent="."]
+modulate = Color(0, 0.788235, 0.776471, 1)
+position = Vector2(-654, 1077)
+scale = Vector2(11.7986, 2.4604)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Light Block4"]
+shape = SubResource("RectangleShape2D_xj4f5")
+
+[node name="Sprite2D" type="Sprite2D" parent="Light Block4"]
+scale = Vector2(0.15625, 0.15625)
+texture = ExtResource("1_gkcnv")
+
+[node name="Area2D" type="Area2D" parent="Light Block4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Light Block4/Area2D"]
+position = Vector2(-0.813843, 0)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_2msbg")
+
+[node name="Dark Block" type="StaticBody2D" parent="."]
+modulate = Color(0.0431373, 0, 0.188235, 1)
+position = Vector2(4188, 715)
+scale = Vector2(8.07862, 11.2204)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dark Block"]
+shape = SubResource("RectangleShape2D_84028")
+
+[node name="Sprite2D" type="Sprite2D" parent="Dark Block"]
+scale = Vector2(0.15625, 0.15625)
+texture = ExtResource("1_gkcnv")
+
+[node name="Area2D" type="Area2D" parent="Dark Block"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dark Block/Area2D"]
+position = Vector2(-0.845154, 0)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_7c0ee")
+
+[node name="Dark Block4" type="StaticBody2D" parent="."]
+modulate = Color(0.0431373, 0, 0.188235, 1)
+position = Vector2(3178, 950)
+scale = Vector2(4.26736, 4.11072)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dark Block4"]
+shape = SubResource("RectangleShape2D_84028")
+
+[node name="Sprite2D" type="Sprite2D" parent="Dark Block4"]
+scale = Vector2(0.15625, 0.15625)
+texture = ExtResource("1_gkcnv")
+
+[node name="Area2D" type="Area2D" parent="Dark Block4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dark Block4/Area2D"]
+position = Vector2(-0.845154, 0)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_7c0ee")
+
+[node name="Dark Block5" type="StaticBody2D" parent="."]
+modulate = Color(0.0431373, 0, 0.188235, 1)
+position = Vector2(3178, 950)
+scale = Vector2(4.26736, 4.11072)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dark Block5"]
+shape = SubResource("RectangleShape2D_84028")
+
+[node name="Sprite2D" type="Sprite2D" parent="Dark Block5"]
+scale = Vector2(0.15625, 0.15625)
+texture = ExtResource("1_gkcnv")
+
+[node name="Area2D" type="Area2D" parent="Dark Block5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dark Block5/Area2D"]
+position = Vector2(-0.845154, 0)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_7c0ee")
+
+[node name="Dark Block2" type="StaticBody2D" parent="."]
+modulate = Color(0.0431373, 0, 0.188235, 1)
+position = Vector2(1272, 1007)
+scale = Vector2(8.07862, 11.2204)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dark Block2"]
+shape = SubResource("RectangleShape2D_84028")
+
+[node name="Sprite2D" type="Sprite2D" parent="Dark Block2"]
+scale = Vector2(0.15625, 0.15625)
+texture = ExtResource("1_gkcnv")
+
+[node name="Area2D" type="Area2D" parent="Dark Block2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dark Block2/Area2D"]
+position = Vector2(-0.845154, 0)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_7c0ee")
+
+[node name="Dark Block3" type="StaticBody2D" parent="."]
+modulate = Color(0.0431373, 0, 0.188235, 1)
+position = Vector2(-1907, 611)
+scale = Vector2(8.07862, 11.2204)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dark Block3"]
+shape = SubResource("RectangleShape2D_84028")
+
+[node name="Sprite2D" type="Sprite2D" parent="Dark Block3"]
+scale = Vector2(0.15625, 0.15625)
+texture = ExtResource("1_gkcnv")
+
+[node name="Area2D" type="Area2D" parent="Dark Block3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dark Block3/Area2D"]
+position = Vector2(-0.845154, 0)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_7c0ee")
+
+[node name="Dark Block6" type="StaticBody2D" parent="."]
+modulate = Color(0.0431373, 0, 0.188235, 1)
+position = Vector2(-1864, 430)
+scale = Vector2(7.25988, 2.25171)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dark Block6"]
+shape = SubResource("RectangleShape2D_84028")
+
+[node name="Sprite2D" type="Sprite2D" parent="Dark Block6"]
+scale = Vector2(0.15625, 0.15625)
+texture = ExtResource("1_gkcnv")
+
+[node name="Area2D" type="Area2D" parent="Dark Block6"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dark Block6/Area2D"]
+position = Vector2(-0.845154, 0)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_7c0ee")
+
+[node name="Dark Block7" type="StaticBody2D" parent="."]
+modulate = Color(0.0431373, 0, 0.188235, 1)
+position = Vector2(-1530, 328)
+scale = Vector2(7.25988, 2.25171)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dark Block7"]
+shape = SubResource("RectangleShape2D_84028")
+
+[node name="Sprite2D" type="Sprite2D" parent="Dark Block7"]
+scale = Vector2(0.15625, 0.15625)
+texture = ExtResource("1_gkcnv")
+
+[node name="Area2D" type="Area2D" parent="Dark Block7"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Dark Block7/Area2D"]
+position = Vector2(-0.845154, 0)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_7c0ee")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-3174, 204.672)
+scale = Vector2(42.6625, 9.43436)
+shape = SubResource("RectangleShape2D_etpnc")
+
+[connection signal="timeout" from="CharacterBody2D/Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="Light Block/Area2D" to="CharacterBody2D" method="_on_light_area_entered"]
+[connection signal="area_entered" from="Light Block2/Area2D" to="CharacterBody2D" method="_on_light_area_entered"]
+[connection signal="area_entered" from="Light Block3/Area2D" to="CharacterBody2D" method="_on_light_area_entered"]
+[connection signal="area_entered" from="Light Block5/Area2D" to="CharacterBody2D" method="_on_light_area_entered"]
+[connection signal="area_entered" from="Light Block6/Area2D" to="CharacterBody2D" method="_on_light_area_entered"]
+[connection signal="area_entered" from="Light Block7/Area2D" to="CharacterBody2D" method="_on_light_area_entered"]
+[connection signal="area_entered" from="Light Block4/Area2D" to="CharacterBody2D" method="_on_light_area_entered"]
+[connection signal="area_entered" from="Dark Block/Area2D" to="CharacterBody2D" method="_on_dark_area_entered"]
+[connection signal="area_entered" from="Dark Block4/Area2D" to="CharacterBody2D" method="_on_dark_area_entered"]
+[connection signal="area_entered" from="Dark Block5/Area2D" to="CharacterBody2D" method="_on_dark_area_entered"]
+[connection signal="area_entered" from="Dark Block2/Area2D" to="CharacterBody2D" method="_on_dark_area_entered"]
+[connection signal="area_entered" from="Dark Block3/Area2D" to="CharacterBody2D" method="_on_dark_area_entered"]
+[connection signal="area_entered" from="Dark Block6/Area2D" to="CharacterBody2D" method="_on_dark_area_entered"]
+[connection signal="area_entered" from="Dark Block7/Area2D" to="CharacterBody2D" method="_on_dark_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
